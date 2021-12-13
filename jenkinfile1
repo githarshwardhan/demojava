@@ -18,6 +18,7 @@ pipeline{
         stage("test-on-deploy"){
             steps{
                 echo "This is test-on-deploy"
+                deploy adapters: [tomcat9(credentialsId: 'pass1', path: '', url: 'http://192.168.0.109:8080')], contextPath: 'devansh', war: '**/*.war'
             }
             
         }
